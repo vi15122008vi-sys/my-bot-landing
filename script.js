@@ -1,8 +1,8 @@
 (() => {
   const translations = {
     en: {
-      brand_aria:"Botstudio home", nav_aria:"Main navigation", language_aria:"Language", skip:"Skip to content", nav_how:"How it works", nav_features:"Features", nav_examples:"Examples", nav_pricing:"Pricing", nav_cta:"Build your bot",
-      hero_eyebrow:"YOUR IDEA, READY TO LAUNCH", hero_title_a:"Create your Telegram bot", hero_title_b:"in 5 minutes", hero_title_c:"with AI.",
+      brand_aria:"BotForge home", nav_aria:"Main navigation", language_aria:"Language", skip:"Skip to content", nav_how:"How it works", nav_features:"Features", nav_examples:"Examples", nav_pricing:"Pricing", nav_cta:"Build your bot",
+      hero_eyebrow:"YOUR IDEA, READY TO LAUNCH", hero_title_a:"Create your Telegram bot with BotForge", hero_title_b:"in 5 minutes", hero_title_c:"with AI.",
       hero_lede:"Turn a simple description into a helpful bot for your business. No code, no complicated setup — just a clear idea and a few clicks.",
       start_free:"Start for free", see_how:"See how it works", hero_proof:"From idea to your first conversation", phone_aria:"A preview of a Telegram café bot",
       ai_architect:"AI architect", always_on:"Always on", bot_online:"bot · online", today:"TODAY", sample_greeting:"Hi! What can I get for you today?",
@@ -31,8 +31,8 @@
       footer_text:"Made for ideas that deserve to happen.", menu_open:"Open navigation", menu_close:"Close navigation"
     },
     ru: {
-      brand_aria:"На главную Botstudio", nav_aria:"Главная навигация", language_aria:"Язык", skip:"Перейти к содержимому", nav_how:"Как это работает", nav_features:"Преимущества", nav_examples:"Примеры", nav_pricing:"Тарифы", nav_cta:"Создать бота",
-      hero_eyebrow:"ВАША ИДЕЯ ГОТОВА К ЗАПУСКУ", hero_title_a:"Создайте Telegram-бота", hero_title_b:"за 5 минут", hero_title_c:"с помощью ИИ.",
+      brand_aria:"На главную BotForge", nav_aria:"Главная навигация", language_aria:"Язык", skip:"Перейти к содержимому", nav_how:"Как это работает", nav_features:"Преимущества", nav_examples:"Примеры", nav_pricing:"Тарифы", nav_cta:"Создать бота",
+      hero_eyebrow:"ВАША ИДЕЯ ГОТОВА К ЗАПУСКУ", hero_title_a:"Создайте Telegram-бота с BotForge", hero_title_b:"за 5 минут", hero_title_c:"с помощью ИИ.",
       hero_lede:"Опишите задачу — и получите полезного бота для бизнеса. Без кода и сложной настройки: только идея и несколько простых шагов.",
       start_free:"Начать бесплатно", see_how:"Как это работает", hero_proof:"От идеи до первого диалога", phone_aria:"Пример Telegram-бота для кофейни",
       ai_architect:"ИИ-архитектор", always_on:"Всегда на связи", bot_online:"бот · онлайн", today:"СЕГОДНЯ", sample_greeting:"Здравствуйте! Что вам подсказать?",
@@ -93,21 +93,21 @@
     document.querySelectorAll('[data-set-lang]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.setLang === lang)));
     if (menuButton?.getAttribute('aria-expanded') === 'true') setMenuLabel(true, lang);
     document.title = lang === 'ru'
-      ? 'ИИ-конструктор Telegram-ботов — создать бота без кода за 5 минут | Botstudio'
-      : 'AI Telegram Bot Builder — Create a Bot Without Code in 5 Minutes | Botstudio';
+      ? 'ИИ-конструктор Telegram-ботов — создать бота без кода за 5 минут | BotForge'
+      : 'AI Telegram Bot Builder — Create a Bot Without Code in 5 Minutes | BotForge';
     const description = lang === 'ru'
       ? 'ИИ-конструктор Telegram-ботов: создать бота без кода за 5 минут. ИИ поможет спроектировать бота, а хостинг уже включён.'
       : 'Create a Telegram bot without code in 5 minutes. An AI architect designs the flow, and hosting is included.';
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
     if (persist) {
-      try { localStorage.setItem('botstudio-language', lang); } catch (_) { /* Storage may be unavailable. */ }
+      try { localStorage.setItem('botforge-language', lang); } catch (_) { /* Storage may be unavailable. */ }
     }
   }
 
   document.querySelectorAll('[data-set-lang]').forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.setLang)));
   let initialLanguage = preferredLanguage();
   try {
-    const savedLanguage = localStorage.getItem('botstudio-language');
+    const savedLanguage = localStorage.getItem('botforge-language');
     if (savedLanguage === 'ru' || savedLanguage === 'en') initialLanguage = savedLanguage;
   } catch (_) { /* Use the browser language when storage is unavailable. */ }
   applyLanguage(initialLanguage, false);
